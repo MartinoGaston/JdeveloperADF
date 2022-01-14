@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="DepartmentsView1"
+    ViewObjectName="com.ayicapacitacion.model.views.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="com.ayicapacitacion.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="JobsView1"
+    ViewObjectName="com.ayicapacitacion.model.views.JobsView"/>
+  <ViewUsage
+    Name="EmployeesView2"
+    ViewObjectName="com.ayicapacitacion.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="DepartmentsView2"
+    ViewObjectName="com.ayicapacitacion.model.views.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView3"
+    ViewObjectName="com.ayicapacitacion.model.views.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="com.ayicapacitacion.model.views.EmpManagerFkLink"
+    SrcViewUsageName="com.ayicapacitacion.model.entities.AppModule.EmployeesView1"
+    DstViewUsageName="com.ayicapacitacion.model.entities.AppModule.EmployeesView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="DeptMgrFkLink1"
+    ViewLinkObjectName="com.ayicapacitacion.model.views.DeptMgrFkLink"
+    SrcViewUsageName="com.ayicapacitacion.model.entities.AppModule.EmployeesView1"
+    DstViewUsageName="com.ayicapacitacion.model.entities.AppModule.DepartmentsView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    ViewLinkObjectName="com.ayicapacitacion.model.views.EmpDeptFkLink"
+    SrcViewUsageName="com.ayicapacitacion.model.entities.AppModule.DepartmentsView1"
+    DstViewUsageName="com.ayicapacitacion.model.entities.AppModule.EmployeesView3"
+    Reversed="false"/>
+</AppModule>

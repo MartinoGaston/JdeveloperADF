@@ -1,0 +1,39 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <Page
+      id="Page2">
+      <property
+         name="jspName">/Consulta.jsff</property>
+      <property
+         name="x">213.88965</property>
+      <property
+         name="y">180.14941</property>
+      <property
+         name="wildcard">false</property>
+   </Page>
+   <Page
+      id="Page3">
+      <property
+         name="jspName">/editor.jsff</property>
+      <property
+         name="x">459.5</property>
+      <property
+         name="y">170.44824</property>
+      <property
+         name="wildcard">false</property>
+   </Page>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase4"
+      from="Page3"
+      to="Page2">
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="fromOutcome">goConsulta</property>
+      <property
+         name="sdm:polyPoints">L50,418.5,170.09766,254.88965,179.79883,R50</property>
+   </NavigationCase>
+</SDM>

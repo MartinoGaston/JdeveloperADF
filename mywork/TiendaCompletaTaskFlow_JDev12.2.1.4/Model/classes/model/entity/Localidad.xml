@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Localidad"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="LOCALIDAD"
+  AliasName="Localidad"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="IdLocalidad"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="ID_LOCALIDAD"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="LOCALIDAD"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Descripcion"
+    Precision="50"
+    ColumnName="DESCRIPCION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="LOCALIDAD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Empleado"
+    Association="model.entity.LocalidadEmpleadoFk1Assoc"
+    AssociationEnd="model.entity.LocalidadEmpleadoFk1Assoc.Empleado"
+    AssociationOtherEnd="model.entity.LocalidadEmpleadoFk1Assoc.Localidad"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="LocalidadPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="LOCALIDAD_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.Localidad.IdLocalidad"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="LocalidadEmpleadoFk1">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="EMPLEADO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="LOCALIDAD_EMPLEADO_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.Localidad.IdLocalidad"/>
+    </AttrArray>
+  </Key>
+</Entity>

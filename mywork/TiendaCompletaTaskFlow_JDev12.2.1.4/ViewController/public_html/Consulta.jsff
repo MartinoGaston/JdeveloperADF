@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}" id="t1"/>
+  <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}" id="tbb1"/>
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="Empleado" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"/>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+  <af:panelFormLayout id="pfl1">
+    <af:inputText value="#{bindings.Nombre.inputValue}" label="#{bindings.Nombre.hints.label}"
+                  required="#{bindings.Nombre.hints.mandatory}" columns="#{bindings.Nombre.hints.displayWidth}"
+                  maximumLength="#{bindings.Nombre.hints.precision}" shortDesc="#{bindings.Nombre.hints.tooltip}"
+                  id="it1">
+      <f:validator binding="#{bindings.Nombre.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Apellido.inputValue}" label="#{bindings.Apellido.hints.label}"
+                  required="#{bindings.Apellido.hints.mandatory}" columns="#{bindings.Apellido.hints.displayWidth}"
+                  maximumLength="#{bindings.Apellido.hints.precision}" shortDesc="#{bindings.Apellido.hints.tooltip}"
+                  id="it2">
+      <f:validator binding="#{bindings.Apellido.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Dni.inputValue}" label="#{bindings.Dni.hints.label}"
+                  required="#{bindings.Dni.hints.mandatory}" columns="#{bindings.Dni.hints.displayWidth}"
+                  maximumLength="#{bindings.Dni.hints.precision}" shortDesc="#{bindings.Dni.hints.tooltip}" id="it3">
+      <f:validator binding="#{bindings.Dni.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.Dni.format}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
+                  required="#{bindings.Email.hints.mandatory}" columns="#{bindings.Email.hints.displayWidth}"
+                  maximumLength="#{bindings.Email.hints.precision}" shortDesc="#{bindings.Email.hints.tooltip}"
+                  id="it4">
+      <f:validator binding="#{bindings.Email.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.IdLocalidad.inputValue}" label="#{bindings.IdLocalidad.hints.label}"
+                  required="#{bindings.IdLocalidad.hints.mandatory}"
+                  columns="#{bindings.IdLocalidad.hints.displayWidth}"
+                  maximumLength="#{bindings.IdLocalidad.hints.precision}"
+                  shortDesc="#{bindings.IdLocalidad.hints.tooltip}" id="it5">
+      <f:validator binding="#{bindings.IdLocalidad.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.IdLocalidad.format}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.IdEstado.inputValue}" label="#{bindings.IdEstado.hints.label}"
+                  required="#{bindings.IdEstado.hints.mandatory}" columns="#{bindings.IdEstado.hints.displayWidth}"
+                  maximumLength="#{bindings.IdEstado.hints.precision}" shortDesc="#{bindings.IdEstado.hints.tooltip}"
+                  id="it6">
+      <f:validator binding="#{bindings.IdEstado.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.IdEstado.format}"/>
+    </af:inputText>
+  </af:panelFormLayout>
+</ui:composition>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<faces-config version="2.1" xmlns="http://java.sun.com/xml/ns/javaee">
+  <application>
+    <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
+  </application>
+  <navigation-rule>
+    <from-view-id>/editor.jsff</from-view-id>
+    <navigation-case>
+      <from-outcome>goConsulta</from-outcome>
+      <to-view-id>/Consulta.jsff</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+</faces-config>

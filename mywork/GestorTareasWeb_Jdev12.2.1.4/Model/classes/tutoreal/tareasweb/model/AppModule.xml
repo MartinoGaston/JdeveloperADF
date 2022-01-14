@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="EstadosView1"
+    ViewObjectName="tutoreal.tareasweb.model.EstadosView"/>
+  <ViewUsage
+    Name="NotasView1"
+    ViewObjectName="tutoreal.tareasweb.model.NotasView"/>
+  <ViewUsage
+    Name="TemasView1"
+    ViewObjectName="tutoreal.tareasweb.model.TemasView"/>
+  <ViewUsage
+    Name="NotasView2"
+    ViewObjectName="tutoreal.tareasweb.model.NotasView"/>
+  <ViewUsage
+    Name="TemasView2"
+    ViewObjectName="tutoreal.tareasweb.model.TemasView"/>
+  <ViewLinkUsage
+    Name="NotasFk1Link1"
+    ViewLinkObjectName="tutoreal.tareasweb.model.NotasFk1Link"
+    SrcViewUsageName="tutoreal.tareasweb.model.AppModule.TemasView1"
+    DstViewUsageName="tutoreal.tareasweb.model.AppModule.NotasView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="TemasFk1Link1"
+    ViewLinkObjectName="tutoreal.tareasweb.model.TemasFk1Link"
+    SrcViewUsageName="tutoreal.tareasweb.model.AppModule.EstadosView1"
+    DstViewUsageName="tutoreal.tareasweb.model.AppModule.TemasView2"
+    Reversed="false"/>
+</AppModule>

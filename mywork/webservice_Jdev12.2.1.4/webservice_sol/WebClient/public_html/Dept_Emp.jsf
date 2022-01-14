@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Dept_Emp.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelSplitter orientation="horizontal" splitterPosition="100" id="ps1">
+                <f:facet name="first">
+                    <!-- Left -->
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.arg0.inputValue}" label="#{bindings.arg0.hints.label}"
+                                      required="#{bindings.arg0.hints.mandatory}"
+                                      columns="#{bindings.arg0.hints.displayWidth}"
+                                      maximumLength="#{bindings.arg0.hints.precision}"
+                                      shortDesc="#{bindings.arg0.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.arg0.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.arg0.format}"/>
+                        </af:inputText>
+                        <af:button actionListener="#{bindings.getDeptInfo.execute}" text="getDeptInfo"
+                                   disabled="#{!bindings.getDeptInfo.enabled}" id="b1"/>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelGridLayout id="pgl1">
+                        <af:gridRow height="100%" id="gr1">
+                            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                                <!-- Content -->
+                                <af:panelGroupLayout layout="vertical" id="pgl2">
+                                    <af:panelHeader text="Return" id="ph1">
+                                        <af:panelFormLayout id="pfl2">
+                                            <af:panelLabelAndMessage label="#{bindings.id.hints.label}" id="plam1">
+                                                <af:outputText value="#{bindings.id.inputValue}"
+                                                               shortDesc="#{bindings.id.hints.tooltip}" id="ot1">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.id.format}"/>
+                                                </af:outputText>
+                                            </af:panelLabelAndMessage>
+                                            <af:panelLabelAndMessage label="#{bindings.location.hints.label}"
+                                                                     id="plam2">
+                                                <af:outputText value="#{bindings.location.inputValue}"
+                                                               shortDesc="#{bindings.location.hints.tooltip}" id="ot2"/>
+                                            </af:panelLabelAndMessage>
+                                            <af:panelLabelAndMessage label="#{bindings.name.hints.label}" id="plam3">
+                                                <af:outputText value="#{bindings.name.inputValue}"
+                                                               shortDesc="#{bindings.name.hints.tooltip}" id="ot3"/>
+                                            </af:panelLabelAndMessage>
+                                            <f:facet name="footer">
+                                                <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="10" height="1" id="s1"/>
+                                                    </f:facet>
+                                                </af:panelGroupLayout>
+                                            </f:facet>
+                                        </af:panelFormLayout>
+                                    </af:panelHeader>
+                                    <af:panelHeader text="employees" id="ph2">
+                                        <af:panelCollection id="pc1">
+                                            <f:facet name="menus"/>
+                                            <f:facet name="toolbar"/>
+                                            <f:facet name="statusbar"/>
+                                            <af:table rows="#{bindings.employees.rangeSize}"
+                                                      fetchSize="#{bindings.employees.rangeSize}"
+                                                      emptyText="#{bindings.employees.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      var="row" value="#{bindings.employees.collectionModel}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.employees.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.employees.collectionModel.makeCurrent}"
+                                                      rowSelection="single" id="t1">
+                                                <af:column headerText="#{bindings.employees.hints.id.label}"
+                                                           sortProperty="#{bindings.employees.hints.id.name}"
+                                                           sortable="false" id="c1">
+                                                    <af:outputText value="#{row.id}"
+                                                                   shortDesc="#{bindings.employees.hints.id.tooltip}"
+                                                                   id="ot4">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.employees.hints.id.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.employees.hints.name.label}"
+                                                           sortProperty="#{bindings.employees.hints.name.name}"
+                                                           sortable="false" id="c2">
+                                                    <af:outputText value="#{row.name}"
+                                                                   shortDesc="#{bindings.employees.hints.name.tooltip}"
+                                                                   id="ot5"/>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.employees.hints.salary.label}"
+                                                           sortProperty="#{bindings.employees.hints.salary.name}"
+                                                           sortable="false" id="c3">
+                                                    <af:outputText value="#{row.salary}"
+                                                                   shortDesc="#{bindings.employees.hints.salary.tooltip}"
+                                                                   id="ot6">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.employees.hints.salary.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                            </af:table>
+                                        </af:panelCollection>
+                                    </af:panelHeader>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+            </af:panelSplitter>
+        </af:form>
+    </af:document>
+</f:view>

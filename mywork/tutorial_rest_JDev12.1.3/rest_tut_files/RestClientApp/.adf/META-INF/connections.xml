@@ -1,0 +1,13 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="DepartmentsRestConn" className="oracle.adf.model.connection.url.HttpURLConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="DepartmentsRestConn">
+        <Contents>
+          <urlconnection name="DepartmentsRestConn"
+                         url="http://127.0.0.1:7101/hr-restservice-context-root/resources/tut/department"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>

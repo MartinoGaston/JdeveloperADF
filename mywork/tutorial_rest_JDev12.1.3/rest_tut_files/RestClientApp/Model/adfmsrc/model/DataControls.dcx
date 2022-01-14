@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="12.1.3.10.47" id="DataControls"
+                    Package="model">
+  <AdapterDataControl id="DepartmentRestDC" FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.rest.RestURLDCDefinition" SupportsTransactions="false"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false" Definition="model.DepartmentRestDC"
+                      BeanClass="model.DepartmentRestDC" xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <Definitions>
+        <Definition xmlns="http://xmlns.oracle.com/adfm/adapter/rest/xml" ConnectionName="DepartmentsRestConn"
+                    Source="/" HttpMethod="GET" id="getAllDepartments" MethodRef="XSD"
+                    SchemaLocation="file:/C:/JDeveloper/mywork/tutorial_rest_JDev12.1.3/rest_tut_files/RestClientApp/Model/xsd/DepartmentsList.xsd"
+                    ensureKeyAttribute="true" dcStructureVersion="2" RootElement="departmentList"/>
+      </Definitions>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

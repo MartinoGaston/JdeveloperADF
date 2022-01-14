@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Estados"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ESTADOS"
+  AliasName="Estados"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="Sid"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="SID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="ESTADOS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Estado"
+    Precision="255"
+    ColumnName="ESTADO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ESTADOS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Temas"
+    Association="tutoreal.tareasweb.model.TemasFk1Assoc"
+    AssociationEnd="tutoreal.tareasweb.model.TemasFk1Assoc.Temas"
+    AssociationOtherEnd="tutoreal.tareasweb.model.TemasFk1Assoc.Estados"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="EstadosPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ESTADOS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="tutoreal.tareasweb.model.Estados.Sid"/>
+    </AttrArray>
+  </Key>
+</Entity>

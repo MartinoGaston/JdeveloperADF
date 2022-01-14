@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="DeptEmp">
+    <page>/pages/DeptEmp.jsf</page>
+  </view>
+  <view id="EditEmployees">
+    <page>/pages/EditEmployees.jsf</page>
+  </view>
+  <control-flow-rule id="__1">
+    <from-activity-id>DeptEmp</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>editEmployee</from-outcome>
+      <to-activity-id>EditEmployees</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__3">
+    <from-activity-id>EditEmployees</from-activity-id>
+    <control-flow-case id="__4">
+      <from-outcome>showDeptEmp</from-outcome>
+      <to-activity-id>DeptEmp</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__5">
+    <managed-bean-name>dataTransferBean</managed-bean-name>
+    <managed-bean-class>client.view.managed.DataTransferBean</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

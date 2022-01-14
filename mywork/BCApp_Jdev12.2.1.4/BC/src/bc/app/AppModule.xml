@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.56.60"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="EstadosView1"
+    ViewObjectName="bc.views.EstadosView"/>
+  <ViewUsage
+    Name="NotasView1"
+    ViewObjectName="bc.views.NotasView"/>
+  <ViewUsage
+    Name="TemasView1"
+    ViewObjectName="bc.views.TemasView"/>
+  <ViewUsage
+    Name="NotasView2"
+    ViewObjectName="bc.views.NotasView"/>
+  <ViewUsage
+    Name="TemasView2"
+    ViewObjectName="bc.views.TemasView"/>
+  <ViewLinkUsage
+    Name="NotasTemasFkLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="bc.views.NotasTemasFkLink"
+    SrcViewUsageName="bc.app.AppModule.TemasView1"
+    DstViewUsageName="bc.app.AppModule.NotasView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="TemasEstadosFkLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="bc.views.TemasEstadosFkLink"
+    SrcViewUsageName="bc.app.AppModule.EstadosView1"
+    DstViewUsageName="bc.app.AppModule.TemasView2"
+    Reversed="false"/>
+</AppModule>

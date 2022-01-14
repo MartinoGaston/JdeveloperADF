@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.56.60"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="DepartmentsView1"
+    ViewObjectName="bc.views.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="bc.views.EmployeesView"/>
+  <ViewUsage
+    Name="JobsView1"
+    ViewObjectName="bc.views.JobsView"/>
+  <ViewUsage
+    Name="EmployeesView2"
+    ViewObjectName="bc.views.EmployeesView"/>
+  <ViewUsage
+    Name="EmployeesView3"
+    ViewObjectName="bc.views.EmployeesView"/>
+  <ViewUsage
+    Name="DepartmentsView2"
+    ViewObjectName="bc.views.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView4"
+    ViewObjectName="bc.views.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="bc.views.EmpManagerFkLink"
+    SrcViewUsageName="bc.app.AppModule.EmployeesView1"
+    DstViewUsageName="bc.app.AppModule.EmployeesView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="bc.views.EmpDeptFkLink"
+    SrcViewUsageName="bc.app.AppModule.DepartmentsView1"
+    DstViewUsageName="bc.app.AppModule.EmployeesView3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="DeptMgrFkLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="bc.views.DeptMgrFkLink"
+    SrcViewUsageName="bc.app.AppModule.EmployeesView1"
+    DstViewUsageName="bc.app.AppModule.DepartmentsView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpJobFkLink1"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="bc.views.EmpJobFkLink"
+    SrcViewUsageName="bc.app.AppModule.JobsView1"
+    DstViewUsageName="bc.app.AppModule.EmployeesView4"
+    Reversed="false"/>
+</AppModule>

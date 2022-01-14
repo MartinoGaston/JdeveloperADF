@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NotasFk1Link"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  EntityAssociation="tutoreal.tareasweb.model.NotasFk1Assoc">
+  <ViewLinkDefEnd
+    Name="TemasView"
+    Cardinality="1"
+    Source="true"
+    Owner="tutoreal.tareasweb.model.TemasView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="TemasView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="tutoreal.tareasweb.model.TemasView.Sid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="NotasView"
+    Cardinality="-1"
+    Owner="tutoreal.tareasweb.model.NotasView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="NotasView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="tutoreal.tareasweb.model.NotasView.FkTema"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

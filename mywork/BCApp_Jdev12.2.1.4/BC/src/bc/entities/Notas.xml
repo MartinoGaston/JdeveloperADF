@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Notas"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="NOTAS"
+  AliasName="Notas"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="Sid"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="SID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="NOTAS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Nota"
+    Precision="255"
+    ColumnName="NOTA"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="NOTAS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Fecha"
+    ColumnName="FECHA"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="NOTAS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FkTema"
+    Precision="10"
+    Scale="0"
+    ColumnName="FK_TEMA"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="NOTAS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Temas"
+    Association="bc.entities.NotasTemasFkAssoc"
+    AssociationEnd="bc.entities.NotasTemasFkAssoc.Temas"
+    AssociationOtherEnd="bc.entities.NotasTemasFkAssoc.Notas"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="NotasPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="NOTAS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bc.entities.Notas.Sid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007099">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007099"/>
+      <Attr Name="_checkCondition" Value='"SID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bc.entities.Notas.Sid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="NotasTemasFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TEMAS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="NOTAS_TEMAS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bc.entities.Notas.FkTema"/>
+    </AttrArray>
+  </Key>
+</Entity>

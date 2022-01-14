@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="Jobs" id="ph1">
+      <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                     value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                     model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                     queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+        <f:facet name="end">
+          <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+        </f:facet>
+      </af:quickQuery>
+    </af:panelHeader>
+    <af:table value="#{bindings.JobsView1.collectionModel}" var="row" rows="#{bindings.JobsView1.rangeSize}"
+              emptyText="#{bindings.JobsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.JobsView1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.JobsView1.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.JobsView1.rangeSize}"
+              filterModel="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}" filterVisible="true"
+              queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}" varStatus="vs"
+              partialTriggers="::qryId1" id="t1">
+      <af:column sortProperty="#{bindings.JobsView1.hints.JobId.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.JobsView1.hints.JobId.label}" id="c1">
+        <af:link shortDesc="#{bindings.JobsView1.hints.JobId.tooltip}" id="ot1" text="Select" action="GoEdit"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.JobsView1.hints.JobTitle.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.JobsView1.hints.JobTitle.label}" id="c2">
+        <af:outputText value="#{row.JobTitle}" shortDesc="#{bindings.JobsView1.hints.JobTitle.tooltip}" id="ot2"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.JobsView1.hints.MinSalary.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.JobsView1.hints.MinSalary.label}" id="c3">
+        <af:outputText value="#{row.MinSalary}" shortDesc="#{bindings.JobsView1.hints.MinSalary.tooltip}" id="ot3">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.JobsView1.hints.MinSalary.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.JobsView1.hints.MaxSalary.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.JobsView1.hints.MaxSalary.label}" id="c4">
+        <af:outputText value="#{row.MaxSalary}" shortDesc="#{bindings.JobsView1.hints.MaxSalary.tooltip}" id="ot4">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.JobsView1.hints.MaxSalary.format}"/>
+        </af:outputText>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</ui:composition>

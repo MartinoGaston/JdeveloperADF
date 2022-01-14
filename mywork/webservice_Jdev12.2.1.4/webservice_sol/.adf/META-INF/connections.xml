@@ -1,0 +1,43 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="MyCompanyDC" className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl"
+             xmlns="">
+    <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="WebServiceConnection">
+        <Contents>
+          <wsconnection description="http://localhost:7101/WebService-Annotation-context-root/MyCompanyPort?WSDL"
+                        service="{http://annotation/}MyCompanyWS">
+            <model name="{http://annotation/}MyCompanyWS" xmlns="http://oracle.com/ws/model">
+              <service name="{http://annotation/}MyCompanyWS">
+                <port name="MyCompanyPort" binding="{http://annotation/}MyCompanyPortBinding">
+                  <soap addressUrl="http://localhost:7101/WebService-Annotation-context-root/MyCompanyPort"
+                        xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                  <operation name="addEmployeeToDept">
+                    <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="setMyDepts">
+                    <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getMyDepts">
+                    <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getDeptInfo">
+                    <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                </port>
+              </service>
+            </model>
+          </wsconnection>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>
