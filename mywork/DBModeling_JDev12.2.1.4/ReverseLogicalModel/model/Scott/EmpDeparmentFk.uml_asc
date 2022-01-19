@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.4.0'/>
+ <uml:Association xmi:type='uml:Association' xmi:uuid='urn:uuid:77500d31-90e5-48bf-84f0-8220e60fe2cc'
+   isAbstract='false'
+   isDerived='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='EmpDeparmentFk'
+   visibility='public'>
+  <memberEnd href='urn:uuid:fe6f8536-464a-4613-a47c-b353585da975'/>
+  <memberEnd href='urn:uuid:b2370323-c47b-4a34-8979-b7358af5e4da'/>
+  <ownedEnd xmi:type='uml:Property' xmi:uuid='urn:uuid:fe6f8536-464a-4613-a47c-b353585da975'
+    isDerived='false'
+    isDerivedUnion='false'
+    isID='false'
+    isLeaf='false'
+    isOrdered='false'
+    isReadOnly='false'
+    isStatic='false'
+    isUnique='true'
+    aggregation='none'>
+   <association href='urn:uuid:77500d31-90e5-48bf-84f0-8220e60fe2cc'/>
+   <type href='urn:uuid:1ae2997c-c3eb-4caf-8f2d-fdd17c8f9067'/>
+   <lowerValue xmi:type='uml:LiteralInteger' xmi:uuid='urn:uuid:facda40b-93e9-4fd4-878f-fa4386a523e1'
+     value='0'
+     visibility='public'/>
+   <upperValue xmi:type='uml:LiteralUnlimitedNatural' xmi:uuid='urn:uuid:8a66e24d-02ef-49fa-9ce1-118f3872f1f9'
+     value='*'
+     visibility='public'/>
+  </ownedEnd>
+ </uml:Association>
+</xmi:XMI>

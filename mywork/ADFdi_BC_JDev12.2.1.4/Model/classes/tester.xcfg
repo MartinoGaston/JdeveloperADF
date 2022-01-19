@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="ADFdi.model.AppModule">
+      <AppModuleConfig name="17E68224D43" DBconnection="jdbc:oracle:thin:@localhost:1521:XE" password="hr" ApplicationName="ADFdi.model.AppModule" DeployPlatform="LOCAL" IsLazyLoadingTrue="true" user="hr" JDBCName="HRConn" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" BC4JConfigName="AppModuleLocal" jbo.project="ADFdi.model.Model">
+         <Database jbo.TypeMapEntries="Oracle" jbo.SQLBuilder="Oracle"/>
+         <Security AppModuleJndiName="ADFdi.model.AppModule"/>
+         <Tester FullProxyInterfaceName="ADFdi.model.common.AppModule"/>
+         <Custom ns0:_testers_credentials_needed="false" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

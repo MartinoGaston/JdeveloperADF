@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<clientRegistry version="1.0" xmlns="http://xmlns.oracle.com/adf/desktopintegration">
+  <client type="Excel">
+    <id>c7583fc1-7594-4826-9bcc-103492a00db3</id>
+    <metadata>
+      <hashValue>ED983EF89C3E4E904CADDA641571558D206CCCBF7C43D74379FF368CFBED0491</hashValue>
+    </metadata>
+  </client>
+</clientRegistry>

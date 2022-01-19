@@ -1,0 +1,240 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<view xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>PERSON_INFO</name>
+  <SQLQuery>
+    <queryString>SELECT 
+    PERSONS.LAST_NAME LAST_NAME, 
+    PERSONS.FIRST_NAME FIRST_NAME, 
+    PERSONS.GENDER GENDER, 
+    ADRESSES.ADDRESS_LINE1 ADDRESS_LINE1, 
+    ADRESSES.ADDRESS_ID ADDRESS_ID, 
+    ADRESSES.ADDRESS_LINE2 ADDRESS_LINE2 
+FROM 
+    ADRESSES JOIN PERSONS USING (PERSON_ID)</queryString>
+  </SQLQuery>
+  <columns>
+    <column>
+      <name>LAST_NAME</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LAST_NAME</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PERSON_INFO</name>
+              <identifier class="java.math.BigDecimal">21406</identifier>
+              <schemaName>DBDEMO</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>FIRST_NAME</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>FIRST_NAME</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PERSON_INFO</name>
+              <identifier class="java.math.BigDecimal">21406</identifier>
+              <schemaName>DBDEMO</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>GENDER</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>GENDER</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PERSON_INFO</name>
+              <identifier class="java.math.BigDecimal">21406</identifier>
+              <schemaName>DBDEMO</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDRESS_LINE1</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">40</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDRESS_LINE1</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PERSON_INFO</name>
+              <identifier class="java.math.BigDecimal">21406</identifier>
+              <schemaName>DBDEMO</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDRESS_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">10</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDRESS_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PERSON_INFO</name>
+              <identifier class="java.math.BigDecimal">21406</identifier>
+              <schemaName>DBDEMO</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDRESS_LINE2</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">240</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ADDRESS_LINE2</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>PERSON_INFO</name>
+              <identifier class="java.math.BigDecimal">21406</identifier>
+              <schemaName>DBDEMO</schemaName>
+              <type>VIEW</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <forceOnCreate>false</forceOnCreate>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">DBDEMOConn</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>PERSON_INFO</name>
+        <identifier class="java.math.BigDecimal">21406</identifier>
+        <schemaName>DBDEMO</schemaName>
+        <type>VIEW</type>
+      </value>
+    </entry>
+  </properties>
+  <schema>
+    <name>DBDEMO</name>
+  </schema>
+</view>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.59.88" id="EditTable_LOVPageDef"
+                Package="ADFdi.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DepartmentsView1" RangeSize="25" DataControl="AppModuleDataControl" id="DepartmentsView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DepartmentsView1Iterator" id="DepartmentsView1">
+      <nodeDefinition DefName="ADFdi.model.DepartmentsView" Name="DepartmentsView10">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="ManagerId"/>
+          <Item Value="LocationId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list Uses="LOV_LocationId" StaticList="false" IterBinding="DepartmentsView1Iterator" id="LocationList"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action IterBinding="DepartmentsView1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <action IterBinding="DepartmentsView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="DepartmentsView1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="DepartmentsView1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

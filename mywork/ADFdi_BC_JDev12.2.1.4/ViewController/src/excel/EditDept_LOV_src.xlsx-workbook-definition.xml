@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<workbook id="c7583fc1-7594-4826-9bcc-103492a00db3" schema-version="1" xmlns="http://xmlns.oracle.com/adf/desktopintegration/workbook">
+  <!--source-document="EditDept_LOV.xlsx" client-version="5.0.5.19787"-->
+  <remote-servlet-path>/adfdiRemoteServlet</remote-servlet-path>
+  <web-app-root>http://127.0.0.1:7101/ADFdi_BC</web-app-root>
+  <application-home-folder></application-home-folder>
+  <web-pages-folder></web-pages-folder>
+  <runtime-ribbon-tab>
+    <title>MyWorkbook</title>
+    <command-list>
+      <command method="Login" />
+      <command method="Logout" />
+      <command method="ClearAllData" />
+      <command method="EditOptions" />
+      <command method="ViewAboutDialog" />
+      <command method="ToggleStatusViewer" />
+    </command-list>
+  </runtime-ribbon-tab>
+  <worksheet-list>
+    <worksheet name="Sheet1">
+      <event-list>
+        <event type="Startup">
+          <action-set>
+            <action-list>
+              <component-action>
+                <component-id>TAB1116501342</component-id>
+                <action>Download</action>
+                <annotation> Download Data</annotation>
+              </component-action>
+            </action-list>
+          </action-set>
+        </event>
+      </event-list>
+      <ribbon-command-list>
+        <ribbon-command id="MEN1116674538">
+          <select-action-set>
+            <action-list>
+              <component-action>
+                <component-id>TAB1116501342</component-id>
+                <action>Download</action>
+              </component-action>
+            </action-list>
+          </select-action-set>
+          <label>#{_ADFDIres[Download]}</label>
+          <image>Download</image>
+        </ribbon-command>
+        <ribbon-command id="MEN1968224687">
+          <select-action-set>
+            <action-list>
+              <component-action>
+                <component-id>TAB1116501342</component-id>
+                <action>Upload</action>
+              </component-action>
+            </action-list>
+          </select-action-set>
+          <label>#{_ADFDIres[Upload]}</label>
+          <image>Upload</image>
+        </ribbon-command>
+        <ribbon-command id="MEN1782565842">
+          <select-action-set>
+            <action-list>
+              <server-action>
+                <action-id>Execute</action-id>
+                <annotation>Run query</annotation>
+              </server-action>
+              <component-action>
+                <component-id>TAB1116501342</component-id>
+                <action>Download</action>
+                <annotation>Download</annotation>
+              </component-action>
+              <component-action>
+                <component-id>TAB1116501342</component-id>
+                <action>ResizeColumns</action>
+              </component-action>
+            </action-list>
+          </select-action-set>
+          <label>Query</label>
+          <image>Generic</image>
+        </ribbon-command>
+        <ribbon-command id="MEN732110736">
+          <select-action-set>
+            <action-list>
+              <confirmation-action>
+                <prompt>Are you sure you want to delete these rows?</prompt>
+                <title>Delete Departments</title>
+              </confirmation-action>
+              <component-action>
+                <component-id>TAB1116501342</component-id>
+                <action>DeleteFlaggedRows</action>
+              </component-action>
+            </action-list>
+          </select-action-set>
+          <label>Delete Flagged</label>
+          <image>Generic</image>
+        </ribbon-command>
+        <ribbon-command id="MEN887647641">
+          <select-action-set>
+            <action-list>
+              <component-action>
+                <component-id>TAB1116501342</component-id>
+                <action>Upload</action>
+              </component-action>
+            </action-list>
+          </select-action-set>
+          <label>Upload</label>
+          <image>Generic</image>
+        </ribbon-command>
+      </ribbon-command-list>
+      <pagedef-usage-id>ADFdi_view_EditTable_LOVPageDef</pagedef-usage-id>
+      <component-list>
+        <table-component id="TAB1116501342" origin="C5">
+          <tree-id>DepartmentsView1</tree-id>
+          <column-list>
+            <column id="_ADF_ChangedColumn">
+              <update-component>
+                <output-text />
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>#{_ADFDIres[Changed]}</header-label>
+              <cell-style>Indicator Cell</cell-style>
+            </column>
+            <column id="_ADF_FlagColumn">
+              <update-component>
+                <output-text />
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>#{_ADFDIres[Flagged]}</header-label>
+              <cell-style>Indicator Cell</cell-style>
+            </column>
+            <column id="_ADF_StatusColumn">
+              <update-component>
+                <output-text>
+                  <double-click-action-set>
+                    <status enabled="false" />
+                    <action-list>
+                      <component-action>
+                        <component-id>TAB1116501342</component-id>
+                        <action>DisplayRowErrors</action>
+                      </component-action>
+                    </action-list>
+                  </double-click-action-set>
+                </output-text>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>#{_ADFDIres[Status]}</header-label>
+              <cell-style>Status Cell</cell-style>
+            </column>
+            <column id="DepartmentId">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.DepartmentId.inputValue}</value>
+                  <read-only>#{bindings.DepartmentsView1.hints.DepartmentId.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>#{bindings.DepartmentsView1.hints.DepartmentId.label}</header-label>
+              <cell-style>_ADFDI_TableCellROStyle</cell-style>
+              <tooltip>#{bindings.DepartmentsView1.hints.DepartmentId.tooltip}</tooltip>
+            </column>
+            <column id="DepartmentName">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.DepartmentName.inputValue}</value>
+                  <read-only>#{bindings.DepartmentsView1.hints.DepartmentName.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>#{bindings.DepartmentsView1.hints.DepartmentName.label}</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.DepartmentsView1.hints.DepartmentName.tooltip}</tooltip>
+            </column>
+            <column id="ManagerId">
+              <update-component>
+                <model-driven-column>
+                  <value>#{row.bindings.ManagerId.inputValue}</value>
+                  <read-only>#{bindings.DepartmentsView1.hints.ManagerId.readOnly}</read-only>
+                </model-driven-column>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>#{bindings.DepartmentsView1.hints.ManagerId.label}</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.DepartmentsView1.hints.ManagerId.tooltip}</tooltip>
+            </column>
+            <column id="LocationId">
+              <update-component>
+                <tree-node-list>
+                  <list>#{row.bindings.LocationId.inputValue}</list>
+                  <read-only>True</read-only>
+                </tree-node-list>
+              </update-component>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>#{bindings.DepartmentsView1.hints.LocationId.label}</header-label>
+              <cell-style>Data Cell</cell-style>
+              <tooltip>#{bindings.DepartmentsView1.hints.LocationId.tooltip}</tooltip>
+            </column>
+            <column id="_ADF_RowKeyColumn">
+              <update-component>
+                <output-text />
+              </update-component>
+              <resize-mode>SpecifiedWidth</resize-mode>
+              <width>5</width>
+              <visible>True</visible>
+              <header-style>Column Header</header-style>
+              <header-label>#{_ADFDIres[Key]}</header-label>
+              <cell-style>Key Cell</cell-style>
+            </column>
+          </column-list>
+          <resize-columns-mode>AutoFitAllWithHeader</resize-columns-mode>
+          <display-upload-options>false</display-upload-options>
+          <row-actions>
+            <insert-before-row-action-id>CreateInsert</insert-before-row-action-id>
+            <delete-row-action-id>Delete</delete-row-action-id>
+            <insert-row-enabled>true</insert-row-enabled>
+            <auto-convert-new-rows-enabled>true</auto-convert-new-rows-enabled>
+            <delete-row-enabled>true</delete-row-enabled>
+          </row-actions>
+          <batch-options>
+            <commit-action>Commit</commit-action>
+          </batch-options>
+          <row-limit>
+            <max-rows>500</max-rows>
+          </row-limit>
+        </table-component>
+      </component-list>
+    </worksheet>
+  </worksheet-list>
+  <compatibility>
+    <table-components>
+      <model-driven-columns>
+        <date-picker-enabled>true</date-picker-enabled>
+        <input-lov-picker-enabled>true</input-lov-picker-enabled>
+      </model-driven-columns>
+      <row-action-set-model-mgmt-enabled>true</row-action-set-model-mgmt-enabled>
+      <smart-row-failure-reporting-enabled>true</smart-row-failure-reporting-enabled>
+    </table-components>
+    <data-entry-validation-enabled>true</data-entry-validation-enabled>
+    <reject-excel-errors-enabled>true</reject-excel-errors-enabled>
+  </compatibility>
+  <auto-display-status-viewer-enabled>true</auto-display-status-viewer-enabled>
+</workbook>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.54.1" id="DataBindings" SeparateXMLFiles="false"
+             Package="ADFdi.view" ClientType="Generic">
+  <pageMap>
+    <page path="/DepartmentPage.jspx"
+          usageId="ADFdi_view_DepartmentPagePageDef"/>
+    <page path="/EditTable_LOV.jspx" usageId="ADFdi_view_EditTable_LOVPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="ADFdi_view_DepartmentPagePageDef"
+          path="ADFdi.view.pageDefs.DepartmentPagePageDef"/>
+    <page id="ADFdi_view_EditTable_LOVPageDef"
+          path="ADFdi.view.pageDefs.EditTable_LOVPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="ADFdi.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

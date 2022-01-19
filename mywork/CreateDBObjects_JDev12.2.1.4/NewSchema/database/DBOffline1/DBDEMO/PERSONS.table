@@ -1,0 +1,147 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>PERSONS</name>
+  <columns>
+    <column>
+      <name>PERSON_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">15</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>AUTO_GENERATED_SEQUENCE</key>
+          <value class="oracle.javatools.db.NameBasedID">
+            <name>PERSONS_SEQ</name>
+            <schemaName>DBDEMO</schemaName>
+            <type>SEQUENCE</type>
+          </value>
+        </entry>
+        <entry>
+          <key>AUTO_GENERATED_SEQUENCE_TRIGGER</key>
+          <value class="oracle.javatools.db.NameBasedID">
+            <name>PERSONS_TRG</name>
+            <schemaName>DBDEMO</schemaName>
+            <type>TRIGGER</type>
+          </value>
+        </entry>
+        <entry>
+          <key>ColumnSequenceExpander.TriggerNullCheck</key>
+          <value class="java.lang.Boolean">true</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>FIRST_NAME</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>LAST_NAME</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>GENDER</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">(M)ale (F)emale (D)reclined to answer</value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>PERSONS_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>PERSON_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>PERSONS</name>
+            <schemaName>DBDEMO</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>DBDEMO</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>PERSONS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>PERSONS</name>
+          <schemaName>DBDEMO</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>DBDEMO</schemaName>
+        <type>INDEX</type>
+      </indexID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <index>
+      <name>PERSONS_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>PERSON_ID</expressionSource>
+          <orderType>ASC</orderType>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <schema>
+        <name>DBDEMO</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </index>
+  </indexes>
+  <properties>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>DBDEMO</name>
+  </schema>
+</table>

@@ -1,0 +1,184 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>ORDERS</name>
+  <columns>
+    <column>
+      <name>ORDER_ID</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>ORDER_DATE</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>ORDER_TOTAL</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>PERSON_ID</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>ORDERS_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>PERSON_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>ORDERS</name>
+            <schemaName>DBDEMO</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>DBDEMO</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PERSONS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>PERSONS</name>
+          <schemaName>DBDEMO</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>DBDEMO</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>ORDERS_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>ORDER_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>ORDERS</name>
+            <schemaName>DBDEMO</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>DBDEMO</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>ORDERS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>ORDERS</name>
+          <schemaName>DBDEMO</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>DBDEMO</schemaName>
+        <type>INDEX</type>
+      </indexID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <index>
+      <name>ORDERS_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>ORDER_ID</expressionSource>
+          <orderType>ASC</orderType>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <schema>
+        <name>DBDEMO</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </index>
+  </indexes>
+  <properties>
+    <entry>
+      <key>OracleTablePartitions</key>
+      <value class="oracle.javatools.db.ora.OracleTablePartitions">
+        <objectType>PARTITION</objectType>
+        <partitionColumns>
+          <partitionColumn class="oracle.javatools.db.NameBasedID">
+            <name>ORDER_DATE</name>
+            <parent class="oracle.javatools.db.NameBasedID">
+              <name>ORDERS</name>
+              <schemaName>DBDEMO</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <schemaName>DBDEMO</schemaName>
+            <type>COLUMN</type>
+          </partitionColumn>
+        </partitionColumns>
+        <partitionType>RANGE</partitionType>
+        <partitions>
+          <partition>
+            <name>PARTITION1</name>
+            <objectType>PARTITION</objectType>
+            <partitionType>RANGE</partitionType>
+            <properties>
+              <entry>
+                <key>OracleTableProperties</key>
+                <value class="oracle.javatools.db.ora.OracleTableProperties">
+                </value>
+              </entry>
+            </properties>
+            <values>
+              <value class="java.lang.String">Values Less Than</value>
+            </values>
+          </partition>
+          <partition>
+            <name>ORDERS_PRE_2007</name>
+            <objectType>PARTITION</objectType>
+            <partitionType>RANGE</partitionType>
+            <properties>
+              <entry>
+                <key>OracleTableProperties</key>
+                <value class="oracle.javatools.db.ora.OracleTableProperties">
+                </value>
+              </entry>
+            </properties>
+            <values>
+              <value class="java.lang.String">01-01-2007</value>
+            </values>
+          </partition>
+          <partition>
+            <name>ORDERS_2007</name>
+            <objectType>PARTITION</objectType>
+            <partitionType>RANGE</partitionType>
+            <values>
+              <value class="java.lang.String">01-01-2008</value>
+            </values>
+          </partition>
+        </partitions>
+      </value>
+    </entry>
+    <entry>
+      <key>PARTITIONED TABLE</key>
+      <value class="java.lang.Boolean">true</value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>DBDEMO</name>
+  </schema>
+</table>
