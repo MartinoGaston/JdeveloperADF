@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/products.jsf" usageId="view_productsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_productsPageDef" path="view.pageDefs.productsPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="StoreProducts" path="model.StoreProducts"/>
+  </dataControlUsages>
+</Application>

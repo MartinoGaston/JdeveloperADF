@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.16.40" id="productsPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="StoreProducts" id="StoreProductsIterator"/>
+    <accessorIterator MasterBinding="StoreProductsIterator" Binds="products" RangeSize="-1" DataControl="StoreProducts"
+                      BeanClass="model.Product" id="productsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="productsIterator" id="products">
+      <nodeDefinition DefName="model.Product" Name="products0">
+        <AttrNames>
+          <Item Value="categoryId"/>
+          <Item Value="id"/>
+          <Item Value="name"/>
+          <Item Value="cost"/>
+          <Item Value="shortDesc"/>
+          <Item Value="rating"/>
+          <Item Value="imageLocation"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="productsIterator" id="categoryId">
+      <AttrNames>
+        <Item Value="categoryId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="productsIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="productsIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="productsIterator" id="cost">
+      <AttrNames>
+        <Item Value="cost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="productsIterator" id="shortDesc">
+      <AttrNames>
+        <Item Value="shortDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="productsIterator" id="rating">
+      <AttrNames>
+        <Item Value="rating"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="productsIterator" id="imageLocation">
+      <AttrNames>
+        <Item Value="imageLocation"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="productsIterator" id="products1">
+      <nodeDefinition DefName="model.Product" Name="products10">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="rating"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="productsIterator" id="products2">
+      <nodeDefinition DefName="model.Product" Name="products20">
+        <AttrNames>
+          <Item Value="categoryId"/>
+          <Item Value="id"/>
+          <Item Value="name"/>
+          <Item Value="cost"/>
+          <Item Value="shortDesc"/>
+          <Item Value="rating"/>
+          <Item Value="imageLocation"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="productsIterator" id="rating1">
+      <AttrNames>
+        <Item Value="rating"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

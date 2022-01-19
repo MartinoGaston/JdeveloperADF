@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <af:document title="products.jsf" id="d1">
+    <af:messages id="m1"/>
+    <af:form id="f1">
+      <af:pageTemplate viewId="/storetemplate.jsf" id="pt1">
+        <f:facet name="center">
+          <af:panelSplitter id="ps1">
+            <f:facet name="first">
+              <af:panelAccordion discloseMany="false" id="pa1">
+                <af:showDetailItem id="pane1" text="My Cart" disclosed="true">
+                  <af:outputText value="No Items" id="ot8">
+                    <af:attributeDropTarget attribute="value"/>
+                  </af:outputText>
+                </af:showDetailItem>
+                <af:showDetailItem text="Recommendations" id="sdi1">
+                  <af:listView value="#{bindings.products1.collectionModel}" var="item"
+                               emptyText="#{bindings.products1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                               fetchSize="#{bindings.products1.rangeSize}" id="lv1">
+                    <af:listItem id="li1">
+                      <af:panelGridLayout id="pgl1">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                          <af:gridCell marginStart="5px" width="auto" id="gc1">
+                            <af:outputFormatted value="#{item.bindings.name.inputValue}" id="of1"/>
+                          </af:gridCell>
+                          <af:gridCell marginStart="5px" width="50px" marginEnd="5px" id="gc2">
+                            <af:outputFormatted value="#{item.bindings.rating.inputValue}" id="of2">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.products1.hints.rating.format}"/>
+                            </af:outputFormatted>
+                          </af:gridCell>
+                        </af:gridRow>
+                      </af:panelGridLayout>
+                    </af:listItem>
+                  </af:listView>
+                </af:showDetailItem>
+              </af:panelAccordion>
+            </f:facet>
+            <f:facet name="second">
+              <af:panelSplitter id="ps2" orientation="vertical">
+                <f:facet name="first">
+                  <af:panelCollection id="pc1">
+                    <f:facet name="menus">
+                      <af:menu text="My Options" id="m2" detachable="true">
+                        <af:commandMenuItem text="Export to Excel" id="cmi1">
+                          <af:exportCollectionActionListener type="excelHTML" exportedId="t1"/>
+                        </af:commandMenuItem>
+                        <af:commandMenuItem text="Printable Page" id="cmi3">
+                          <af:showPrintablePageBehavior/>
+                        </af:commandMenuItem>
+                        <af:commandMenuItem text="Show Specials" id="cmi2">
+                          <af:showPopupBehavior popupId=":::p1"/>
+                        </af:commandMenuItem>
+                      </af:menu>
+                    </f:facet>
+                    <f:facet name="toolbar"/>
+                    <af:table value="#{bindings.products.collectionModel}" var="row"
+                              rows="#{bindings.products.rangeSize}"
+                              emptyText="#{bindings.products.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0" selectedRowKeys="#{bindings.products.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.products.collectionModel.makeCurrent}" rowSelection="single"
+                              fetchSize="#{bindings.products.rangeSize}" id="t1" editingMode="clickToEdit"
+                              columnStretching="last">
+                      <af:column sortProperty="#{bindings.products.hints.categoryId.name}" sortable="true"
+                                 headerText="#{bindings.products.hints.categoryId.label}" id="c1">
+                        <af:outputText value="#{row.categoryId}"
+                                       shortDesc="#{bindings.products.hints.categoryId.tooltip}" id="ot1">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.products.hints.categoryId.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.products.hints.id.name}" sortable="true"
+                                 headerText="#{bindings.products.hints.id.label}" id="c2">
+                        <af:outputText value="#{row.id}" shortDesc="#{bindings.products.hints.id.tooltip}" id="ot2">
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.products.hints.id.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.products.hints.name.name}" sortable="true"
+                                 headerText="#{bindings.products.hints.name.label}" id="c3">
+                        <af:outputText value="#{row.name}" shortDesc="#{bindings.products.hints.name.tooltip}"
+                                       id="ot3">
+                          <af:attributeDragSource attribute="value"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.products.hints.cost.name}" sortable="true"
+                                 headerText="#{bindings.products.hints.cost.label}" id="c4">
+                        <af:outputText value="#{row.cost}" shortDesc="#{bindings.products.hints.cost.tooltip}"
+                                       id="ot4"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.products.hints.shortDesc.name}" sortable="true"
+                                 headerText="#{bindings.products.hints.shortDesc.label}" id="c5">
+                        <af:outputText value="#{row.shortDesc}" shortDesc="#{bindings.products.hints.shortDesc.tooltip}"
+                                       id="ot5"/>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.products.hints.rating.name}" sortable="true"
+                                 headerText="#{bindings.products.hints.rating.label}" id="c6">
+                        <af:outputText value="#{row.rating}" shortDesc="#{bindings.products.hints.rating.tooltip}"
+                                       id="ot6">
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.products.hints.rating.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="#{bindings.products.hints.imageLocation.name}" sortable="true"
+                                 headerText="#{bindings.products.hints.imageLocation.label}" id="c7">
+                        <af:outputText value="#{row.imageLocation}"
+                                       shortDesc="#{bindings.products.hints.imageLocation.tooltip}" id="ot7"/>
+                      </af:column>
+                    </af:table>
+                    <f:facet name="statusbar"/>
+                    <f:facet name="viewMenu">
+                      <af:commandMenuItem text="View As Carousel" id="cmi4">
+                        <af:showPopupBehavior popupId=":::p2"/>
+                      </af:commandMenuItem>
+                    </f:facet>
+                  </af:panelCollection>
+                </f:facet>
+                <f:facet name="second">
+                  <af:panelTabbed position="above" id="pt2">
+                    <af:showDetailItem id="tab1" text="Product Details">
+                      <af:panelFormLayout id="pfl1" rows="6">
+                        <af:inputText value="#{bindings.categoryId.inputValue}"
+                                      label="#{bindings.categoryId.hints.label}"
+                                      required="#{bindings.categoryId.hints.mandatory}"
+                                      columns="#{bindings.categoryId.hints.displayWidth}"
+                                      maximumLength="#{bindings.categoryId.hints.precision}"
+                                      shortDesc="#{bindings.categoryId.hints.tooltip}" id="it1">
+                          <f:validator binding="#{bindings.categoryId.validator}"/>
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.categoryId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.id.inputValue}" label="#{bindings.id.hints.label}"
+                                      required="#{bindings.id.hints.mandatory}"
+                                      columns="#{bindings.id.hints.displayWidth}"
+                                      maximumLength="#{bindings.id.hints.precision}"
+                                      shortDesc="#{bindings.id.hints.tooltip}" id="it2">
+                          <f:validator binding="#{bindings.id.validator}"/>
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.id.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.name.inputValue}" label="#{bindings.name.hints.label}"
+                                      required="#{bindings.name.hints.mandatory}"
+                                      columns="#{bindings.name.hints.displayWidth}"
+                                      maximumLength="#{bindings.name.hints.precision}"
+                                      shortDesc="#{bindings.name.hints.tooltip}" id="it3">
+                          <f:validator binding="#{bindings.name.validator}"/>
+                        </af:inputText>
+                        <af:inputNumberSpinbox value="#{bindings.cost.inputValue}" label="#{bindings.cost.hints.label}"
+                                               required="#{bindings.cost.hints.mandatory}"
+                                               columns="#{bindings.cost.hints.displayWidth}"
+                                               shortDesc="#{bindings.cost.hints.tooltip}" id="it4">
+                          <f:validator binding="#{bindings.cost.validator}"/>
+                        </af:inputNumberSpinbox>
+                        <af:richTextEditor value="#{bindings.shortDesc.inputValue}"
+                                           label="#{bindings.shortDesc.hints.label}"
+                                           required="#{bindings.shortDesc.hints.mandatory}"
+                                           columns="#{bindings.shortDesc.hints.displayWidth}"
+                                           shortDesc="#{bindings.shortDesc.hints.tooltip}" id="it5">
+                          <facet name="footer"/>
+                        </af:richTextEditor>
+                        <af:inputNumberSlider value="#{bindings.rating.inputValue}"
+                                              label="#{bindings.rating.hints.label}"
+                                              required="#{bindings.rating.hints.mandatory}"
+                                              shortDesc="#{bindings.rating.hints.tooltip}" id="it6">
+                          <f:validator binding="#{bindings.rating.validator}"/>
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.rating.format}"/>
+                        </af:inputNumberSlider>
+                        <af:image shortDesc="#{bindings.imageLocation.hints.tooltip}" id="it7"
+                                  source="images/products/#{bindings.imageLocation.inputValue}"/>
+                        <f:facet name="footer">
+                          <af:button text="Submit" id="b1"/>
+                        </f:facet>
+                      </af:panelFormLayout>
+                    </af:showDetailItem>
+                    <af:showDetailItem text="Rating" id="sdi2">
+                      <dvt:gauge id="gauge1" value="#{bindings.rating1.inputValue}" gaugeType="DIAL" maxValue="5"
+                                 shortDesc="rating gauge" partialTriggers="::pc1:t1">
+                        <dvt:gaugeBackground>
+                          <dvt:specialEffects/>
+                        </dvt:gaugeBackground>
+                        <dvt:thresholdSet>
+                          <dvt:threshold fillColor="#d62800" thresholdMaxValue="1"/>
+                          <dvt:threshold fillColor="#ffcf21" thresholdMaxValue="3"/>
+                          <dvt:threshold fillColor="#84ae31"/>
+                        </dvt:thresholdSet>
+                        <dvt:gaugeFrame/>
+                        <dvt:indicator/>
+                        <dvt:indicatorBase/>
+                        <dvt:gaugePlotArea/>
+                        <dvt:tickLabel/>
+                        <dvt:tickMark/>
+                        <dvt:topLabel position="LP_ABOVE_GAUGE" text="#{bindings.rating1.hints.label}"/>
+                        <dvt:bottomLabel position="LP_BELOW_GAUGE" text="#{bindings.rating1.hints.label}"/>
+                        <dvt:metricLabel position="LP_WITH_BOTTOM_LABEL">
+                          <af:convertNumber pattern="#{bindings.rating1.format}"/>
+                        </dvt:metricLabel>
+                      </dvt:gauge>
+                    </af:showDetailItem>
+                  </af:panelTabbed>
+                </f:facet>
+              </af:panelSplitter>
+            </f:facet>
+          </af:panelSplitter>
+        </f:facet>
+        <f:attribute name="title" value="Store Front"/>
+      </af:pageTemplate>
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+        <af:dialog id="d2">
+          <f:facet name="buttonBar"/>
+          <af:image source="/images/JDeveloper.gif" id="i1"/>
+        </af:dialog>
+      </af:popup>
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
+        <af:dialog id="d3" type="ok">
+          <f:facet name="buttonBar"/>
+          <af:carousel currentItemKey="#{bindings.products2.treeModel.rootCurrencyRowKey}"
+                       value="#{bindings.products2.treeModel}" var="item" id="c8">
+            <f:facet name="nodeStamp">
+              <af:carouselItem id="ci1">
+                <af:image source="/images/products/#{item.imageLocation}" id="i2"/>
+              </af:carouselItem>
+            </f:facet>
+          </af:carousel>
+        </af:dialog>
+      </af:popup>
+    </af:form>
+  </af:document>
+</f:view>
