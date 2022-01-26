@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="EditarProductos.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelSplitter orientation="horizontal" splitterPosition="100" id="ps1">
+                <f:facet name="first">
+                    <af:tree value="#{bindings.Categorias.treeModel}" var="node"
+                             selectionListener="#{bindings.Categorias.treeModel.makeCurrent}" rowSelection="single"
+                             id="t2">
+                        <f:facet name="nodeStamp">
+                            <af:outputText value="#{node}" id="ot1"/>
+                        </f:facet>
+                    </af:tree>
+                </f:facet>
+                <f:facet name="second">
+                    <af:table value="#{bindings.Productos.collectionModel}" var="row"
+                              rows="#{bindings.Productos.rangeSize}"
+                              emptyText="#{bindings.Productos.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0" fetchSize="#{bindings.Productos.rangeSize}" id="t1"
+                              autoHeightRows="-1" partialTriggers="::t2">
+                        <af:column headerText="#{bindings.Productos.hints.NombreProducto.label}" id="c1">
+                            <af:inputText value="#{row.bindings.NombreProducto.inputValue}"
+                                          label="#{bindings.Productos.hints.NombreProducto.label}"
+                                          required="#{bindings.Productos.hints.NombreProducto.mandatory}"
+                                          columns="#{bindings.Productos.hints.NombreProducto.displayWidth}"
+                                          maximumLength="#{bindings.Productos.hints.NombreProducto.precision}"
+                                          shortDesc="#{bindings.Productos.hints.NombreProducto.tooltip}" id="it1">
+                                <f:validator binding="#{row.bindings.NombreProducto.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.Productos.hints.DescipcionProducto.label}" id="c2">
+                            <af:inputText value="#{row.bindings.DescipcionProducto.inputValue}"
+                                          label="#{bindings.Productos.hints.DescipcionProducto.label}"
+                                          required="#{bindings.Productos.hints.DescipcionProducto.mandatory}"
+                                          columns="#{bindings.Productos.hints.DescipcionProducto.displayWidth}"
+                                          maximumLength="#{bindings.Productos.hints.DescipcionProducto.precision}"
+                                          shortDesc="#{bindings.Productos.hints.DescipcionProducto.tooltip}" id="it2">
+                                <f:validator binding="#{row.bindings.DescipcionProducto.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.Productos.hints.Precio.label}" id="c3">
+                            <af:inputText value="#{row.bindings.Precio.inputValue}"
+                                          label="#{bindings.Productos.hints.Precio.label}"
+                                          required="#{bindings.Productos.hints.Precio.mandatory}"
+                                          columns="#{bindings.Productos.hints.Precio.displayWidth}"
+                                          maximumLength="#{bindings.Productos.hints.Precio.precision}"
+                                          shortDesc="#{bindings.Productos.hints.Precio.tooltip}" id="it3">
+                                <f:validator binding="#{row.bindings.Precio.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.Productos.hints.Precio.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.Productos.hints.Proveedor.label}" id="c4">
+                            <af:selectOneChoice value="#{row.bindings.Proveedor.inputValue}"
+                                                label="#{row.bindings.Proveedor.label}"
+                                                required="#{bindings.Productos.hints.Proveedor.mandatory}"
+                                                shortDesc="#{bindings.Productos.hints.Proveedor.tooltip}" id="soc1">
+                                <f:selectItems value="#{row.bindings.Proveedor.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.Proveedor.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                    </af:table>
+                </f:facet>
+            </af:panelSplitter>
+        </af:form>
+    </af:document>
+</f:view>

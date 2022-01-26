@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/placeholder"
+  Name="ProductData"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_description" Value="Datos ficticios para páginas de productos "/>
+  </DesignTime>
+  <ViewUsage
+    Name="Categorias"
+    ViewObjectName="model.prototype.Categorias"/>
+  <ViewUsage
+    Name="Productos"
+    ViewObjectName="model.prototype.Productos"/>
+  <ViewLinkUsage
+    Name="DTLink"
+    ViewLinkObjectName="model.prototype.DTLink"
+    SrcViewUsageName="model.prototype.ProductData.Categorias"
+    DstViewUsageName="model.prototype.ProductData.Productos"
+    Reversed="false"/>
+</AppModule>
