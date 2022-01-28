@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="Ayi.model.Cursos.entity.AppModule">
+      <AppModuleConfig name="17EA274DF46" JDBCName="Escuelita" DeployPlatform="LOCAL" jbo.project="Ayi.model.Model" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" BC4JConfigName="AppModuleLocal" ApplicationName="Ayi.model.Cursos.entity.AppModule" DBconnection="java:comp/env/jdbc/EscuelitaDS">
+         <Database jbo.locking.mode="optimistic" jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/EscuelitaDS" jbo.SQLBuilder="Oracle"/>
+         <Security AppModuleJndiName="Ayi.model.Cursos.entity.AppModule"/>
+         <Tester FullProxyInterfaceName="Ayi.model.Cursos.entity.common.AppModule"/>
+         <Custom ns0:tester_classloader_enabled="true" ns0:_testers_credentials_needed="false" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="Ayi.model.Materias.entity.AppModule">
+      <AppModuleConfig name="17EA27AB31F" IsLazyLoadingTrue="true" DBconnection="java:comp/env/jdbc/EscuelitaDS" ApplicationName="Ayi.model.Materias.entity.AppModule" jbo.project="Ayi.model.Model" BC4JConfigName="AppModuleLocal" JDBCName="Escuelita" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Database JDBCDataSource="java:comp/env/jdbc/EscuelitaDS" jbo.SQLBuilder="Oracle" jbo.locking.mode="optimistic" jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="Ayi.model.Materias.entity.AppModule"/>
+         <Tester FullProxyInterfaceName="Ayi.model.Materias.entity.common.AppModule"/>
+         <Custom ns0:LastUsedConfiguration="AppModuleLocal" ns0:tester_classloader_enabled="true" ns0:_testers_credentials_needed="false" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

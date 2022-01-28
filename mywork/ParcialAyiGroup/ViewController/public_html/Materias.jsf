@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Materias.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:table value="#{bindings.MateriasView1.collectionModel}" var="row"
+                      rows="#{bindings.MateriasView1.rangeSize}"
+                      emptyText="#{bindings.MateriasView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.MateriasView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.MateriasView1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.MateriasView1.rangeSize}" id="t1">
+                <af:column headerText="#{bindings.MateriasView1.hints.Id.label}" id="c1">
+                    <af:outputText value="#{row.Id}" shortDesc="#{bindings.MateriasView1.hints.Id.tooltip}" id="ot1">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.MateriasView1.hints.Id.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.MateriasView1.hints.Nombre.label}" id="c2">
+                    <af:outputText value="#{row.Nombre}" shortDesc="#{bindings.MateriasView1.hints.Nombre.tooltip}"
+                                   id="ot2"/>
+                </af:column>
+                <af:column headerText="#{bindings.MateriasView1.hints.Duracion.label}" id="c3">
+                    <af:outputText value="#{row.Duracion}" shortDesc="#{bindings.MateriasView1.hints.Duracion.tooltip}"
+                                   id="ot3">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.MateriasView1.hints.Duracion.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.MateriasView1.hints.CursoId.label}" id="c4">
+                    <af:outputText value="#{row.CursoId}" shortDesc="#{bindings.MateriasView1.hints.CursoId.tooltip}"
+                                   id="ot4">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.MateriasView1.hints.CursoId.format}"/>
+                    </af:outputText>
+                </af:column>
+            </af:table>
+        </af:form>
+    </af:document>
+</f:view>

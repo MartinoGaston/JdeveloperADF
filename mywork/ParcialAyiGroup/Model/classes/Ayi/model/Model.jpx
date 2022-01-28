@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Model"
+  Version="12.2.1.22.48"
+  SeparateXMLFiles="true"
+  PackageName="Ayi.model">
+  <DesignTime>
+    <Attr Name="_DTExpressionTypeChecking" Value="true"/>
+    <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
+    <Attr Name="_jprName" Value="../../../Model.jpr"/>
+    <Attr Name="_NamedConnection" Value="Escuelita"/>
+    <Attr Name="_appModuleNames0" Value="Ayi.model.Materias.entity.AppModule"/>
+    <Attr Name="_appModuleNames1" Value="Ayi.model.Cursos.entity.AppModule"/>
+  </DesignTime>
+  <Containee
+    Name="entity"
+    PackageName="Ayi.model.Cursos.entity"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="view"
+    PackageName="Ayi.model.Cursos.view"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="entity"
+    PackageName="Ayi.model.Materias.entity"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="view"
+    PackageName="Ayi.model.Materias.view"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <AppModuleUsage
+    Name="AppModule"
+    FullName="Ayi.model.Materias.entity.AppModule"
+    ConfigurationName="Ayi.model.Materias.entity.AppModuleShared"
+    SharedScope="2"/>
+</JboProject>

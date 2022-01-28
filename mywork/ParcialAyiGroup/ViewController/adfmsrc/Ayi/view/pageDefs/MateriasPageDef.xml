@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="MateriasPageDef"
+                Package="Ayi.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MateriasView1" RangeSize="25" DataControl="AppModuleDataControl" id="MateriasView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MateriasView1Iterator" id="MateriasView1">
+      <nodeDefinition DefName="Ayi.model.Materias.view.MateriasView" Name="MateriasView10">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Nombre"/>
+          <Item Value="Duracion"/>
+          <Item Value="CursoId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

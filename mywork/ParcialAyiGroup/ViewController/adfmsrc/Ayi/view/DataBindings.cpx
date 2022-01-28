@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="Ayi.view" ClientType="Generic">
+  <pageMap>
+    <page path="/Materias.jsf" usageId="Ayi_view_MateriasPageDef"/>
+    <page path="/Cursos.jsf" usageId="Ayi_view_CursosPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="Ayi_view_MateriasPageDef" path="Ayi.view.pageDefs.MateriasPageDef"/>
+    <page id="Ayi_view_CursosPageDef" path="Ayi.view.pageDefs.CursosPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="Ayi.model.Materias.entity"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="AppModuleDataControl1" Package="Ayi.model.Cursos.entity"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>
